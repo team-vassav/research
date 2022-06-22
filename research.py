@@ -1,20 +1,21 @@
+import requests
 import streamlit as st
-from gsheetsdb import connect
+import pandas as pd
+#import matplotlib.pyplot as plt
+#import numpy as np
 
-# Create a connection object.
-conn = connect()
-
-# Perform SQL query on the Google Sheet.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-# @st.cache(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
-
-sheet_url = st.secrets["public_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
-
-# Print results.
-for row in rows:
-    st.write(f"{row.name} has a :{row.pet}:")
+while True:
+	r = requests.get('https://api.thingspeak.com/channels/1739457/feeds.csv?results=1')
+	#pprint.pprint(r.text)
+	contents = r.text
+	contents = contents.split("\n")
+	data = {}
+	for i in range(1,len(contents)-1):
+		points = contents[i][28:]
+		data[float(points[:3])] = float(points[4:])
+	#print(data)
+	data = pd.DataFrame(list(data.items()),columns = ['column1','column2']) 
+	
+	#st.dataframe(data[:10])
+		
+	st.line_chart(data)
