@@ -1,5 +1,5 @@
 import requests
-#import streamlit as st
+import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 #import numpy as np
@@ -9,9 +9,6 @@ while True:
 	contents = r.text
 	contents = contents.split("\n")
 	x,y = contents[1][28:].split(',')
-	'''f = plt.figure()
-	f.set_figwidth(4)
-	f.set_figheight(1)'''
-	
+	fig, ax = plt.subplots()
 	plt.scatter(float(x), float(y), linewidth=4.0)
-	plt.show()
+	st.pyplot(fig)
