@@ -42,4 +42,4 @@ ax.set_facecolor('#DEDEDE')
 ax1.set_facecolor('#DEDEDE')
 # animate
 ani = FuncAnimation(fig, my_function, interval=6000)
-st.pyplot(plt)
+st.pyplot(fig)
