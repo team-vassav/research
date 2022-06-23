@@ -37,13 +37,17 @@ ani = FuncAnimation(fig, animate, frames=100, interval=500, repeat=False)
 plt.show()'''
 
 x=1
+x_data=[1]
+y_data = []
 plt.ylim(1,8)
 plt.xlim(1,8)
 
 while True:
-	y = randint(1,9)
+	y_data = y_data.append(randint(1,9))
 	x += 1
-	plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3,
+	x_data.append(x)
+	
+	plt.plot(x_data, y_data, color='green', linestyle='dashed', linewidth = 3,
          marker='o', markerfacecolor='blue', markersize=12)
 	time.sleep(1)
 	st.pyplot(fig=plt, clear_figure=True)
