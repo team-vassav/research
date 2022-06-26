@@ -45,7 +45,7 @@ while True:
     ani = FuncAnimation(fig, my_function, interval=1000)
     #my_function()
     #plt.show()
-    st.pyplot(fig)
+    st.pyplot(fig,clear_figure=True)
 
 
 #arr = np.random.normal(1, 1, size=100)
