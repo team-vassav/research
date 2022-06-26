@@ -44,4 +44,5 @@ ax.set_facecolor('#DEDEDE')
 while True:
     ani = FuncAnimation(fig, my_function, interval=1000)
     #my_function()
-    plt.show()
+    #plt.show()
+    st.pyplot(fig)
