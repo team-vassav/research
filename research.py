@@ -36,7 +36,7 @@ cpu = collections.deque(np.zeros(10))
 #ram = collections.deque(np.zeros(10))
 # define and adjust figure
 fig = plt.figure(figsize=(12, 6), facecolor='#DEDEDE')
-ax = plt.subplot(121)
+ax = plt.subplots()
 #ax1 = plt.subplot(122)
 ax.set_facecolor('#DEDEDE')
 #ax1.set_facecolor('#DEDEDE')
@@ -45,4 +45,11 @@ while True:
     ani = FuncAnimation(fig, my_function, interval=1000)
     #my_function()
     #plt.show()
-    st.pyplot(plt)
+    st.pyplot(fig)
+
+
+#arr = np.random.normal(1, 1, size=100)
+#fig, ax = plt.subplots()
+#ax.hist(arr, bins=20)
+
+#st.pyplot(fig)
