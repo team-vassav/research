@@ -38,7 +38,7 @@ cpu = collections.deque(np.zeros(10))
 fig = plt.figure(figsize=(12, 6), facecolor='#DEDEDE')
 ax = plt.subplots()
 #ax1 = plt.subplot(122)
-ax.set_facecolor('#DEDEDE')
+#ax.set_facecolor('#DEDEDE')
 #ax1.set_facecolor('#DEDEDE')
 # animate
 while True:
